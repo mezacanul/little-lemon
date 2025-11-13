@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.text-green {
+    color: #495e57;
+}
+
+.text-yellow {
+    color: #f4ce14;
+}
+
+.text-salmon {
+    color: #ee9972;
+}
+
+.text-gray {
+    color: #edefee;
+}
+
+.bg-green {
+    background-color: #495e57;
+}
+
+.bg-yellow {
+    background-color: #f4ce14;
+}
+
+.bg-salmon {
+    background-color: #ee9972;
+}
+
+.bg-gray {
+    background-color: #edefee;
+}
