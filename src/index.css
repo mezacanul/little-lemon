@@ -38,3 +38,8 @@ a:hover {
 .bg-gray {
     background-color: #edefee;
 }
+
+.body-container {
+    width: 65vw;
+    margin: 0 auto;
+}
