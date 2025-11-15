@@ -2,6 +2,8 @@ import { Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import Layout from "./components/Layout";
+import Confirmation from "./pages/Cofirmation";
+// import Confirmation from "./pages/Confirmation";
 
 export default function App() {
     return (
@@ -17,6 +19,10 @@ export default function App() {
                 <Route
                     path="/booking"
                     element={<Booking />}
+                ></Route>
+                <Route
+                    path="/booking/confirmation"
+                    element={<Confirmation />}
                 />
             </Route>
             <Route
@@ -29,7 +35,10 @@ export default function App() {
 
 function NotFound() {
     return (
-        <div>
+        <div
+            className="body-container py-5 d-flex justify-content-center align-items-center flex-column"
+            style={{ height: "100vh" }}
+        >
             <h2>404 - Page Not Found</h2>
             <Link to="/">Go to Home</Link>
         </div>

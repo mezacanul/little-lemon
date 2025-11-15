@@ -1,10 +1,11 @@
-import { Button, Card, Image } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import heroImage from "../assets/restauranfood.jpg";
 import specialImage from "../assets/greek_salad.jpg";
 import bruchettaImage from "../assets/bruchetta1.jpg";
 import lemonDessertImage from "../assets/lemon_dessert.jpg";
 import { FaStar } from "react-icons/fa6";
 import { MdDeliveryDining } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -39,9 +40,12 @@ function Hero() {
                         restaurant, focused on traditional
                         recipes served with a modern twist.
                     </p>
-                    <Button className="btn-warning">
+                    <Link
+                        to="/booking"
+                        className="btn btn-warning text-decoration-none"
+                    >
                         {"Reserve a table"}
-                    </Button>
+                    </Link>
                 </div>
 
                 <div
@@ -92,13 +96,19 @@ function Specials() {
         },
     ];
     return (
-        <div className="d-flex justify-content-center w-100 py-4 px-5">
-            <div style={{ width: "65vw" }}>
+        <div
+            id="specials"
+            className="d-flex justify-content-center w-100 py-4 px-5"
+        >
+            <div className="body-container py-5">
                 <div className="d-flex justify-content-between align-items-center">
                     <h2>This week's specials!</h2>
-                    <Button className="btn-warning">
+                    <Link
+                        to="/booking"
+                        className="btn btn-warning text-decoration-none"
+                    >
                         {"Online Menu"}
-                    </Button>
+                    </Link>
                 </div>
 
                 <div className="d-flex w-100 gap-4 py-5">
@@ -142,7 +152,8 @@ function CardItem({ image, title, price, description }) {
                 </Card.Title>
                 <Card.Text>{description}</Card.Text>
 
-                <div
+                <Link
+                    to="/booking"
                     className="d-flex align-items-center gap-2 fw-bold"
                     style={{ cursor: "pointer" }}
                 >
@@ -150,7 +161,7 @@ function CardItem({ image, title, price, description }) {
                     <MdDeliveryDining
                         style={{ fontSize: "1.5rem" }}
                     />
-                </div>
+                </Link>
             </Card.Body>
         </Card>
     );
@@ -185,8 +196,8 @@ function Testimonials() {
     ];
     return (
         <div className="w-100 py-5 px-5 bg-green">
-            <div className="body-container d-flex flex-column gap-4 pb-3">
-                <h2 className="text-white text-center mb-4">
+            <div className="body-container py-5 d-flex flex-column gap-4">
+                <h2 className="text-white text-center mb-4 display-5">
                     {"What Our Customers Say"}
                 </h2>
                 <div
@@ -250,7 +261,10 @@ function Rating({ value }) {
 
 function About() {
     return (
-        <div className="body-container py-5">
+        <div
+            id="about"
+            className="body-container py-5"
+        >
             <div className="d-flex justify-content-between align-items-center py-4">
                 <div className="pe-5 w-50">
                     <h2 className="text-green">

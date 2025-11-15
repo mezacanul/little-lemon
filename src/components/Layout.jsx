@@ -27,11 +27,11 @@ function Navbar() {
         },
         {
             label: "About",
-            to: "/about",
+            to: "#about",
         },
         {
             label: "Menu",
-            to: "/menu",
+            to: "#specials",
         },
         {
             label: "Reservations",
@@ -39,11 +39,11 @@ function Navbar() {
         },
         {
             label: "Order Online",
-            to: "/order-online",
+            to: "/booking",
         },
         {
             label: "Login",
-            to: "/login",
+            to: "/",
         },
     ];
     return (
@@ -60,14 +60,30 @@ function Navbar() {
                     />
                 </div>
                 <div className="d-flex gap-3">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.to}
-                            to={item.to}
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    {navItems.map((item, index) => {
+                        if (item.to.startsWith("#")) {
+                            return (
+                                <a
+                                    key={index}
+                                    href={item.to}
+                                >
+                                    {item.label}
+                                </a>
+                            );
+                        } else if (
+                            item.to.startsWith("/")
+                        ) {
+                            return (
+                                <Link
+                                    key={index}
+                                    to={item.to}
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        }
+                        return null;
+                    })}
                 </div>
             </nav>
         </div>
@@ -81,7 +97,7 @@ function Footer() {
                 <div className="d-flex gap-4">
                     <Image
                         src={
-                            "./src/assets/logo-vertical.png"
+                            "/src/assets/logo-vertical.png"
                         }
                         alt="Little Lemon"
                         style={{
@@ -111,7 +127,9 @@ function Footer() {
                     <a href="#">Contact</a>
                 </div>
             </div>
-            <p className="text-yellow text-center">® Copyright 2025 Little Lemon</p>
+            <p className="text-yellow text-center">
+                ® Copyright 2025 Little Lemon
+            </p>
         </footer>
     );
 }

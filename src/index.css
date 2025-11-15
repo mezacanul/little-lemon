@@ -24,22 +24,27 @@ a:hover {
 }
 
 .bg-green {
-    background-color: #495e57;
+    background-color: #495e57 !important;
 }
 
 .bg-yellow {
-    background-color: #f4ce14;
+    background-color: #f4ce14 !important;
 }
 
 .bg-salmon {
-    background-color: #ee9972;
+    background-color: #ee9972 !important;
 }
 
 .bg-gray {
-    background-color: #edefee;
+    background-color: #edefee !important;
 }
 
 .body-container {
     width: 65vw;
     margin: 0 auto;
+}
+
+.form-check-input {
+    border-width: 2px !important; /* border thickness */
+    border-color: #0d6efd !important;
 }
