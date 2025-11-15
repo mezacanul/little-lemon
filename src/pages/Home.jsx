@@ -4,6 +4,7 @@ import specialImage from "../assets/greek_salad.jpg";
 import bruchettaImage from "../assets/bruchetta1.jpg";
 import lemonDessertImage from "../assets/lemon_dessert.jpg";
 import { FaStar } from "react-icons/fa6";
+import { MdDeliveryDining } from "react-icons/md";
 
 export default function Home() {
     return (
@@ -141,9 +142,15 @@ function CardItem({ image, title, price, description }) {
                 </Card.Title>
                 <Card.Text>{description}</Card.Text>
 
-                <Card.Text className="fw-bold">
-                    {"Order a delivery"}
-                </Card.Text>
+                <div
+                    className="d-flex align-items-center gap-2 fw-bold"
+                    style={{ cursor: "pointer" }}
+                >
+                    <span>{"Order a delivery"}</span>
+                    <MdDeliveryDining
+                        style={{ fontSize: "1.5rem" }}
+                    />
+                </div>
             </Card.Body>
         </Card>
     );
@@ -179,8 +186,8 @@ function Testimonials() {
     return (
         <div className="w-100 py-5 px-5 bg-green">
             <div className="body-container d-flex flex-column gap-4 pb-3">
-                <h2 className="text-white text-center">
-                    Testimonials
+                <h2 className="text-white text-center mb-4">
+                    {"What Our Customers Say"}
                 </h2>
                 <div
                     className="d-grid gap-4"
@@ -246,8 +253,12 @@ function About() {
         <div className="body-container py-5">
             <div className="d-flex justify-content-between align-items-center py-4">
                 <div className="pe-5 w-50">
-                    <h2 className="text-green">Little Lemon</h2>
-                    <h4 className="mb-4 text-salmon">Chicago</h4>
+                    <h2 className="text-green">
+                        Little Lemon
+                    </h2>
+                    <h4 className="mb-4 text-salmon">
+                        Chicago
+                    </h4>
                     <p>
                         Lorem ipsum dolor sit amet
                         consectetur adipisicing elit.
@@ -263,6 +274,7 @@ function About() {
                 </div>
                 <div className="position-relative w-50">
                     <Image
+                        className="rounded"
                         src={"./src/assets/rest1.jpg"}
                         alt="About"
                         style={{
@@ -273,6 +285,7 @@ function About() {
                         }}
                     />
                     <Image
+                        className="rounded"
                         src={"./src/assets/rest2.jpg"}
                         alt="About"
                         style={{

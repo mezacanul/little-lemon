@@ -111,6 +111,7 @@ function Footer() {
                     <a href="#">Contact</a>
                 </div>
             </div>
+            <p className="text-yellow text-center">® Copyright 2025 Little Lemon</p>
         </footer>
     );
 }
