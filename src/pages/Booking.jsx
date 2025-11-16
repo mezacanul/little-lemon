@@ -48,15 +48,51 @@ export function BookingForm({
     setFormData,
     availableTimes,
 }) {
+    const [validationStatus, setValidationStatus] =
+        useState({
+            name: true,
+            email: true,
+            terms: true,
+        });
     const navigate = useNavigate();
+
+    const validateForm = () => {
+        let isValid = true;
+        const validation = {
+            name: formData.name.length > 0,
+            email:
+                formData.email.length > 0 &&
+                formData.email.includes("@") &&
+                formData.email.includes("."),
+            terms: formData.terms,
+        };
+        for (const key in validation) {
+            if (!validation[key]) {
+                isValid = false;
+                break;
+            }
+        }
+        return {
+            status: isValid,
+            validation,
+        };
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const { status, validation } = validateForm();
+        console.log(status, validation);
+        setValidationStatus(validation);
+        if (!status) {
+            return;
+        }
         navigate(`/booking/confirmation`, {
             state: {
                 formData: formData,
             },
         });
     };
+
     return (
         <form className="w-100 d-flex flex-column gap-4 justify-content-center align-items-center">
             <div
@@ -174,7 +210,7 @@ export function BookingForm({
                                 name: e.target.value,
                             })
                         }
-                        isInvalid={true}
+                        isInvalid={!validationStatus.name}
                     />
                     <Form.Control.Feedback type="invalid">
                         Please enter a valid name.
@@ -188,7 +224,7 @@ export function BookingForm({
                         type="email"
                         placeholder="Email"
                         value={formData.email}
-                        isInvalid={true}
+                        isInvalid={!validationStatus.email}
                         onChange={(e) =>
                             setFormData({
                                 ...formData,
@@ -206,13 +242,18 @@ export function BookingForm({
                     type="checkbox"
                     id="terms"
                     label="I agree to the terms and conditions"
-                    onChange={(e) =>
+                    onChange={(e) => {
                         setFormData({
                             ...formData,
                             terms: e.target.checked,
-                        })
-                    }
-                    isInvalid={true}
+                        });
+                        setValidationStatus({
+                            ...validationStatus,
+                            terms: e.target.checked,
+                        });
+                    }}
+                    checked={formData.terms}
+                    isInvalid={!validationStatus.terms}
                 />
             </div>
             <Button
