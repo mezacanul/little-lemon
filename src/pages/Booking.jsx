@@ -12,6 +12,9 @@ export default function Booking() {
         time: "17:00",
         guests: 1,
         occasion: "Birthday",
+        name: "",
+        email: "",
+        terms: false,
     });
 
     useEffect(() => {
@@ -40,7 +43,7 @@ export default function Booking() {
     );
 }
 
-function BookingForm({
+export function BookingForm({
     formData,
     setFormData,
     availableTimes,
@@ -67,8 +70,11 @@ function BookingForm({
                 className="py-5"
             >
                 <div className="d-flex flex-column gap-2">
-                    <label>Choose date</label>
+                    <label htmlFor="date">
+                        Choose date
+                    </label>
                     <Form.Control
+                        id="date"
                         className="shadow-sm"
                         type="date"
                         value={formData.date}
@@ -85,8 +91,11 @@ function BookingForm({
                 </div>
 
                 <div className="d-flex flex-column gap-2">
-                    <label>Choose time</label>
+                    <label htmlFor="time">
+                        Choose time
+                    </label>
                     <Form.Select
+                        id="time"
                         className="shadow-sm"
                         value={formData.time}
                         onChange={(e) =>
@@ -108,14 +117,16 @@ function BookingForm({
                 </div>
 
                 <div className="d-flex flex-column gap-2">
-                    <label>Number of guests</label>
+                    <label htmlFor="guests">
+                        Number of guests
+                    </label>
                     <Form.Control
+                        id="guests"
                         className="shadow-sm"
                         type="number"
                         placeholder="1"
                         min="1"
                         max="10"
-                        id="guests"
                         value={formData.guests}
                         onChange={(e) =>
                             setFormData({
@@ -127,8 +138,11 @@ function BookingForm({
                 </div>
 
                 <div className="d-flex flex-column gap-2">
-                    <label>Occasion</label>
+                    <label htmlFor="occasion">
+                        Occasion
+                    </label>
                     <Form.Select
+                        id="occasion"
                         className="shadow-sm"
                         value={formData.occasion}
                         onChange={(e) =>
@@ -146,10 +160,51 @@ function BookingForm({
                         </option>
                     </Form.Select>
                 </div>
+                <div className="d-flex flex-column gap-2">
+                    <label htmlFor="name">{"Name"}</label>
+                    <Form.Control
+                        id="name"
+                        className="shadow-sm"
+                        type="text"
+                        placeholder="Name"
+                        value={formData.name}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                name: e.target.value,
+                            })
+                        }
+                        isInvalid={true}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Please enter a valid name.
+                    </Form.Control.Feedback>
+                </div>
+                <div className="d-flex flex-column gap-2">
+                    <label htmlFor="email">{"Email"}</label>
+                    <Form.Control
+                        id="email"
+                        className="shadow-sm"
+                        type="email"
+                        placeholder="Email"
+                        value={formData.email}
+                        isInvalid={true}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                email: e.target.value,
+                            })
+                        }
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Please enter a valid email.
+                    </Form.Control.Feedback>
+                </div>
             </div>
             <div className="d-flex justify-content-center">
                 <Form.Check
                     type="checkbox"
+                    id="terms"
                     label="I agree to the terms and conditions"
                     onChange={(e) =>
                         setFormData({
@@ -157,16 +212,18 @@ function BookingForm({
                             terms: e.target.checked,
                         })
                     }
+                    isInvalid={true}
                 />
             </div>
             <Button
+                id="submit"
                 type="submit"
                 onClick={handleSubmit}
                 // value="Make Your reservation"
                 style={{ width: "20rem" }}
                 className="bg-yellow text-black border-0"
             >
-                {"Make Your reservation"}
+                {"Make Your Reservation"}
             </Button>
         </form>
     );

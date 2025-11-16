@@ -38,22 +38,24 @@ export default function Confirmation() {
                     Here are the details of your booking:
                 </p>
                 {/* <ul> */}
-                <li className="d-flex w-25 justify-content-between">
-                    <span>Date:</span>{" "}
-                    <b>{formData.date ?? "--"}</b>
-                </li>
-                <li className="d-flex w-25 justify-content-between">
-                    <span>Time:</span>{" "}
-                    <b>{formData.time ?? "-"}</b>
-                </li>
-                <li className="d-flex w-25 justify-content-between">
-                    <span>Guests:</span>{" "}
-                    <b>{formData.guests ?? "-"}</b>
-                </li>
-                <li className="d-flex w-25 justify-content-between">
-                    <span>Occasion:</span>{" "}
-                    <b>{formData.occasion ?? "-"}</b>
-                </li>
+                <div className="d-flex flex-column gap-2">
+                    <li className="d-flex w-25 justify-content-between">
+                        <span>Date:</span>{" "}
+                        <b>{formData.date ?? "--"}</b>
+                    </li>
+                    <li className="d-flex w-25 justify-content-between">
+                        <span>Time:</span>{" "}
+                        <b>{formData.time ?? "-"}</b>
+                    </li>
+                    <li className="d-flex w-25 justify-content-between">
+                        <span>Guests:</span>{" "}
+                        <b>{formData.guests ?? "-"}</b>
+                    </li>
+                    <li className="d-flex w-25 justify-content-between">
+                        <span>Occasion:</span>{" "}
+                        <b>{formData.occasion ?? "-"}</b>
+                    </li>
+                </div>
                 {/* </ul> */}
             </div>
             <Link
