@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo.svg";
-import { Image } from "react-bootstrap";
+import { Image, NavDropdown } from "react-bootstrap";
 
 export default function Layout() {
     return (
@@ -48,10 +48,7 @@ function Navbar() {
     ];
     return (
         <div className="d-flex justify-content-center w-100 py-4 px-5">
-            <nav
-                style={{ width: "65vw" }}
-                className="d-flex justify-content-between"
-            >
+            <nav className="d-flex justify-content-between body-container">
                 <div>
                     <img
                         src={logo}
@@ -59,7 +56,26 @@ function Navbar() {
                         style={{ width: "8rem" }}
                     />
                 </div>
-                <div className="d-flex gap-3">
+
+                <NavDropdown
+                    title="Menu"
+                    id="menu-dropdown"
+                >
+                    {navItems.map((item, index) => {
+                        return (
+                            <NavDropdown.Item
+                                key={index}
+                                href={item.to}
+                            >
+                                {item.label}
+                            </NavDropdown.Item>
+                        );
+                    })}
+                </NavDropdown>
+                <div
+                    className="gap-3"
+                    id="menu-full"
+                >
                     {navItems.map((item, index) => {
                         if (item.to.startsWith("#")) {
                             return (

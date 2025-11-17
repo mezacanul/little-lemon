@@ -22,13 +22,15 @@ function Hero() {
     return (
         <div
             style={{ marginBottom: "8rem" }}
-            className="bg-green text-white p-5 d-flex justify-content-center gap-5 align-items-start"
+            className="bg-green text-white p-5 gap-5 "
+            id="hero-container"
         >
             <div
+                className="body-container"
                 style={{
-                    width: "65vw",
                     position: "relative",
                 }}
+                id="hero-content"
             >
                 <div className="d-flex flex-column gap-2 align-items-start">
                     <h1 className="display-4 text-yellow">
@@ -48,22 +50,11 @@ function Hero() {
                     </Link>
                 </div>
 
-                <div
-                    style={{
-                        position: "absolute",
-                        right: "0",
-                        top: "0",
-                    }}
-                >
+                <div id="hero-image">
                     <Image
                         src={heroImage}
                         alt="Little Lemon"
                         className="rounded"
-                        style={{
-                            objectFit: "cover",
-                            width: "20rem",
-                            height: "25rem",
-                        }}
                     />
                 </div>
             </div>
@@ -111,7 +102,10 @@ function Specials() {
                     </Link>
                 </div>
 
-                <div className="d-flex w-100 gap-4 py-5">
+                <div
+                    id="cards-container"
+                    className="w-100 gap-4 py-5"
+                >
                     {specials.map((special) => (
                         <CardItem
                             key={special.title}
@@ -127,7 +121,7 @@ function Specials() {
 function CardItem({ image, title, price, description }) {
     return (
         <Card
-            style={{ width: "20rem" }}
+            // style={{ width: "20rem" }}
             className="shadow-sm"
         >
             <Card.Img
@@ -201,12 +195,8 @@ function Testimonials() {
                     {"What Our Customers Say"}
                 </h2>
                 <div
-                    className="d-grid gap-4"
-                    style={{
-                        gridTemplateColumns:
-                            "repeat(4, 1fr)",
-                        alignItems: "start",
-                    }}
+                    id="testimonials-container"
+                    className="w-100 gap-4"
                 >
                     {testimonials.map((testimonial) => (
                         <TestimonialItem

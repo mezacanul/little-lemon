@@ -39,11 +39,6 @@ a:hover {
     background-color: #edefee !important;
 }
 
-.body-container {
-    width: 65vw;
-    margin: 0 auto;
-}
-
 .form-check-input {
     border-width: 2px !important; /* border thickness */
     border-color: #0d6efd !important;
